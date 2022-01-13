@@ -16,6 +16,7 @@
 
 package controllers
 
+import controllers.actions.AuthActionFilter
 import play.api.libs.json.JsValue
 import play.api.mvc.{Action, ControllerComponents}
 import uk.gov.hmrc.play.bootstrap.backend.controller.BackendController
@@ -24,10 +25,10 @@ import javax.inject.{Inject, Singleton}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 @Singleton()
-class SubscriptionController @Inject()(cc: ControllerComponents)
+class SubscriptionController @Inject()(cc: ControllerComponents, authFilter: AuthActionFilter)
     extends BackendController(cc) with StubResource {
 
-  def updateSubscription(): Action[JsValue] = Action(parse.json).async {
+  def updateSubscription(): Action[JsValue] = (Action(parse.json) andThen authFilter) .async {
     implicit request =>
       val json     = request.body
       val idNumber = (json \ "updateSubscriptionForMDRRequest" \ "requestDetail" \ "IDNumber").as[String]

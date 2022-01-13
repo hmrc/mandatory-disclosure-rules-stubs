@@ -24,11 +24,13 @@ import play.api.http.Status
 import play.api.libs.json.Json
 import play.api.test.FakeRequest
 import play.api.test.Helpers._
+import uk.gov.hmrc.http.HeaderNames
 
 class SubscriptionControllerSpec extends AnyWordSpec with Matchers with GuiceOneAppPerSuite with OptionValues {
 
+  private val authHeader: (String, String) = HeaderNames.authorisation -> "token"
 
-  val jsonBody = (id:String)  =>  Json.parse(s"""{
+  private val jsonBody = (id:String)  =>  Json.parse(s"""{
                    | "updateSubscriptionForMDRRequest": {
                    |  "requestCommon": {
                    |   "regime": "MDR",
@@ -64,14 +66,19 @@ class SubscriptionControllerSpec extends AnyWordSpec with Matchers with GuiceOne
   private val fakeRequestWithJsonBody = FakeRequest("POST", routes.SubscriptionController.updateSubscription().url)
 
   "POST to updateSubscription" should {
-    "return 200" in {
+    "return 403" in {
       val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0001122345"))).value
+      status(result) shouldBe Status.FORBIDDEN
+    }
+
+    "return 200" in {
+      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0001122345")).withHeaders(authHeader)).value
       status(result) shouldBe Status.OK
     }
 
     "return 404" in {
 
-      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR000NOTFOUND"))).value
+      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR000NOTFOUND")).withHeaders(authHeader)).value
       status(result) shouldBe Status.NOT_FOUND
     }
   }
