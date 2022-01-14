@@ -25,18 +25,16 @@ import javax.inject.{Inject, Singleton}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 @Singleton()
-class SubscriptionController @Inject()(cc: ControllerComponents, authFilter: AuthActionFilter)
-    extends BackendController(cc) with StubResource {
+class SubscriptionController @Inject() (cc: ControllerComponents, authFilter: AuthActionFilter) extends BackendController(cc) with StubResource {
 
-  def updateSubscription(): Action[JsValue] = (Action(parse.json) andThen authFilter) .async {
-    implicit request =>
-      val json     = request.body
-      val idNumber = (json \ "updateSubscriptionForMDRRequest" \ "requestDetail" \ "IDNumber").as[String]
+  def updateSubscription(): Action[JsValue] = (Action(parse.json) andThen authFilter).async { implicit request =>
+    val json     = request.body
+    val idNumber = (json \ "updateSubscriptionForMDRRequest" \ "requestDetail" \ "IDNumber").as[String]
 
-      idNumber match {
-        case "XAMDR0000123777" => jsonAsyncResourceResponse(s"/resources/subscription/updateSubscriptionResponseXAMDR0000123777.json")
-        case "XAMDR0000123778" => jsonAsyncResourceResponse(s"/resources/subscription/updateSubscriptionResponseXAMDR0000123778.json")
-        case _ => Future.successful(NotFound)
-      }
+    idNumber match {
+      case "XAMDR0000123777" => jsonAsyncResourceResponse(s"/resources/subscription/updateSubscriptionResponseXAMDR0000123777.json")
+      case "XAMDR0000123778" => jsonAsyncResourceResponse(s"/resources/subscription/updateSubscriptionResponseXAMDR0000123778.json")
+      case _                 => Future.successful(NotFound)
+    }
   }
 }

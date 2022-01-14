@@ -28,27 +28,23 @@ trait StubResource {
 
   def jsonResourceAsResponse(path: String): Result = resourceAsResponse(path, JSON)
 
-  def jsonAsyncResourceResponse(path: String)(implicit ec:ExecutionContext): Future[Result] = Future[Result] {
+  def jsonAsyncResourceResponse(path: String)(implicit ec: ExecutionContext): Future[Result] = Future[Result] {
     resourceAsResponse(path, JSON)
   }
 
-  private def readStreamToString(is: InputStream): String = {
+  private def readStreamToString(is: InputStream): String =
     try Source.fromInputStream(is).mkString
     finally is.close()
-  }
 
   def findResource(path: String): Option[String] =
-    Option(getClass.getResourceAsStream(path)) map {
-      is =>
-        readStreamToString(is)
+    Option(getClass.getResourceAsStream(path)) map { is =>
+      readStreamToString(is)
     }
 
-
-  def resourceAsResponse(path: String, mimeType: String): Result = {
+  def resourceAsResponse(path: String, mimeType: String): Result =
     findResource(path) match {
       case Some(content) => Ok(content).as(mimeType)
-      case _ => NotFound
+      case _             => NotFound
     }
-  }
 
 }
