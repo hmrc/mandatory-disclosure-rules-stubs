@@ -67,12 +67,12 @@ class SubscriptionControllerSpec extends AnyWordSpec with Matchers with GuiceOne
 
   "POST to updateSubscription" should {
     "return 403" in {
-      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0001122345"))).value
+      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0000123777"))).value
       status(result) shouldBe Status.FORBIDDEN
     }
 
     "return 200" in {
-      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0001122345")).withHeaders(authHeader)).value
+      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0000123777")).withHeaders(authHeader)).value
       status(result) shouldBe Status.OK
     }
 
