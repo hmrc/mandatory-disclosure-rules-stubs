@@ -34,8 +34,8 @@ class SubscriptionController @Inject()(cc: ControllerComponents, authFilter: Aut
       val idNumber = (json \ "updateSubscriptionForMDRRequest" \ "requestDetail" \ "IDNumber").as[String]
 
       idNumber match {
-        case "XAMDR0001122345" => jsonAsyncResourceResponse(s"/resources/subscription/updateSubscriptionResponseXAMDR0001122345.json")
-        case "XAMDR0001122346" => jsonAsyncResourceResponse(s"/resources/subscription/updateSubscriptionResponseXAMDR0001122346.json")
+        case "XAMDR0000123777" => jsonAsyncResourceResponse(s"/resources/subscription/updateSubscriptionResponseXAMDR0000123777.json")
+        case "XAMDR0000123778" => jsonAsyncResourceResponse(s"/resources/subscription/updateSubscriptionResponseXAMDR0000123778.json")
         case _ => Future.successful(NotFound)
       }
   }
