@@ -30,7 +30,7 @@ class SubscriptionControllerSpec extends AnyWordSpec with Matchers with GuiceOne
 
   private val authHeader: (String, String) = HeaderNames.authorisation -> "token"
 
-  private val jsonBody = (id:String)  =>  Json.parse(s"""{
+  private val jsonBody = (id: String) => Json.parse(s"""{
                    | "updateSubscriptionForMDRRequest": {
                    |  "requestCommon": {
                    |   "regime": "MDR",
@@ -67,18 +67,18 @@ class SubscriptionControllerSpec extends AnyWordSpec with Matchers with GuiceOne
 
   "POST to updateSubscription" should {
     "return 403" in {
-      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0000123777"))).value
+      val result = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0000123777"))).value
       status(result) shouldBe Status.FORBIDDEN
     }
 
     "return 200" in {
-      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0000123777")).withHeaders(authHeader)).value
+      val result = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR0000123777")).withHeaders(authHeader)).value
       status(result) shouldBe Status.OK
     }
 
     "return 404" in {
 
-      val result  = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR000NOTFOUND")).withHeaders(authHeader)).value
+      val result = route(app, fakeRequestWithJsonBody.withBody(jsonBody("XAMDR000NOTFOUND")).withHeaders(authHeader)).value
       status(result) shouldBe Status.NOT_FOUND
     }
   }
