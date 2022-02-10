@@ -1,0 +1,29 @@
+[
+  {
+    "name": "test1.xml",
+    "submitted": "2022-02-10T15:35:37.636",
+    "status": {
+      "_type": "models.Pending"
+    },
+    "conversationId": "XGD11111"
+  },
+  {
+    "name": "test2.xml",
+    "submitted": "2022-02-10T15:35:37.636",
+    "status": {
+      "error": {
+        "detail": "error"
+      },
+      "_type": "models.Rejected"
+    },
+    "conversationId": "XGD11111"
+  },
+  {
+    "name": "test3.xml",
+    "submitted": "2022-02-10T15:35:37.636",
+    "status": {
+      "_type": "models.Accepted"
+    },
+    "conversationId": "XGD11111"
+  }
+]
