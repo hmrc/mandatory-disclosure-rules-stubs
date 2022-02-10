@@ -5,7 +5,7 @@
     "status": {
       "_type": "models.Pending"
     },
-    "conversationId": "XGD11111"
+    "conversationId": "conversationId1"
   },
   {
     "name": "test2.xml",
@@ -16,7 +16,7 @@
       },
       "_type": "models.Rejected"
     },
-    "conversationId": "XGD11111"
+    "conversationId": "conversationId2"
   },
   {
     "name": "test3.xml",
@@ -24,6 +24,6 @@
     "status": {
       "_type": "models.Accepted"
     },
-    "conversationId": "XGD11111"
+    "conversationId": "conversationId3"
   }
 ]

@@ -1,0 +1,11 @@
+{
+  "name": "test2.xml",
+  "submitted": "2022-02-10T15:35:37.636",
+  "status": {
+    "error": {
+      "detail": "error"
+    },
+    "_type": "models.Rejected"
+  },
+  "conversationId": "conversationId2"
+}
