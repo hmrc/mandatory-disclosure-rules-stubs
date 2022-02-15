@@ -17,8 +17,7 @@
 package controllers
 
 import controllers.actions.AuthActionFilter
-import play.api.libs.json.JsValue
-import play.api.mvc.{Action, ControllerComponents}
+import play.api.mvc.{Action, AnyContent, ControllerComponents}
 import uk.gov.hmrc.play.bootstrap.backend.controller.BackendController
 
 import javax.inject.{Inject, Singleton}
@@ -28,14 +27,14 @@ import scala.concurrent.Future
 @Singleton()
 class FileStatusController @Inject() (cc: ControllerComponents, authFilter: AuthActionFilter) extends BackendController(cc) with StubResource {
 
-  def allFiles(mdrid: String): Action[JsValue] = (Action(parse.json) andThen authFilter).async { implicit request =>
+  def allFiles(mdrid: String): Action[AnyContent] = (Action andThen authFilter).async { implicit request =>
     mdrid match {
       case "XAMDR0009234568" => jsonAsyncResourceResponse(s"/resources/status/AllFiles.json")
       case _                 => Future.successful(NotFound)
     }
   }
 
-  def file(conversationId: String): Action[JsValue] = (Action(parse.json) andThen authFilter).async { implicit request =>
+  def file(conversationId: String): Action[AnyContent] = (Action andThen authFilter).async { implicit request =>
     conversationId match {
       case "conversationId3" => jsonAsyncResourceResponse(s"/resources/status/Accepted.json")
       case "conversationId2" => jsonAsyncResourceResponse(s"/resources/status/Rejected.json")

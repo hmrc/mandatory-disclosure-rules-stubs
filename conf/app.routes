@@ -1,5 +1,5 @@
 # microservice specific routes
 
 POST        /mdr/dct70e/v1            controllers.SubscriptionController.updateSubscription()
-GET       /mdr/all-files/:mdrid            controllers.FileStatusController.allFiles(mdrid)
-GET       /mdr/file/:conversationid           controllers.FileStatusController.file(conversationid)
+GET         /mdr/all-files/:mdrid            controllers.FileStatusController.allFiles(mdrid)
+GET         /mdr/file/:conversationid           controllers.FileStatusController.file(conversationid)
