@@ -1,8 +1,7 @@
 {
   "name": "test3.xml",
   "submitted": "2022-02-10T15:35:37.636",
-  "status": {
-    "_type": "models.Accepted"
-  },
-  "conversationId": "conversationId3"
+  "lastUpdated": "2022-02-10T15:55:37.636",
+  "status":  "Accepted",
+  "_id": "conversationId3"
 }

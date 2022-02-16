@@ -4,8 +4,7 @@
   "status": {
     "error": {
       "detail": "error"
-    },
-    "_type": "models.Rejected"
+    }
   },
-  "conversationId": "conversationId2"
+  "_id": "conversationId2"
 }
