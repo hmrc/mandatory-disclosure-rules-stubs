@@ -1,7 +1,8 @@
 {
   "name": "test3.xml",
-  "submitted": "2022-02-10T15:35:37.636",
-  "lastUpdated": "2022-02-10T15:55:37.636",
-  "status":  "Accepted",
+  "submitted": "2022-02-10T14:20:37.636Z",
+  "messageRefId" : "GBXAMDR1234444",
+  "lastUpdated": "2022-02-10T14:27:06.024Z",
+  "status": "Accepted",
   "_id": "conversationId3"
 }
