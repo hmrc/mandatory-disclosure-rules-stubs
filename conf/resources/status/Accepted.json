@@ -3,6 +3,8 @@
   "submitted": "2022-02-10T14:20:37.636Z",
   "messageRefId" : "GBXAMDR1234444",
   "lastUpdated": "2022-02-10T14:27:06.024Z",
-  "status": "Accepted",
+  "status": {
+    "Accepted": {}
+  },
   "_id": "conversationId3"
 }
