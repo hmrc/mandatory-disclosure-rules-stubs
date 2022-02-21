@@ -4,7 +4,9 @@
     "submitted": "2022-02-10T19:30:37.636Z",
     "lastUpdated": "2022-02-10T19:30:37.636Z",
     "messageRefId" : "GBXAMDR1234555",
-    "status":"Pending",
+    "status":{
+      "Pending": {}
+    },
     "_id": "conversationId1"
   },
   {
@@ -13,8 +15,10 @@
     "lastUpdated": "2022-02-10T12:27:06.024Z",
     "messageRefId" : "GBXAMDR1234567",
     "status": {
-      "error": {
-        "detail": "error"
+      "Rejected": {
+        "error": {
+          "detail": "error"
+        }
       }
     },
     "_id": "conversationId2"
@@ -24,7 +28,9 @@
     "submitted": "2022-02-10T14:20:37.636Z",
     "messageRefId" : "GBXAMDR1234444",
     "lastUpdated": "2022-02-10T14:27:06.024Z",
-    "status": "Accepted",
+    "status": {
+      "Accepted": {}
+    },
     "_id": "conversationId3"
   }
 ]

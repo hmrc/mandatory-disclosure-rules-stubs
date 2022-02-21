@@ -4,8 +4,10 @@
   "lastUpdated": "2022-02-10T12:27:06.024Z",
   "messageRefId" : "GBXAMDR1234567",
   "status": {
-    "error": {
-      "detail": "error"
+    "Rejected": {
+      "error": {
+        "detail": "error"
+      }
     }
   },
   "_id": "conversationId2"
