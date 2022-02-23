@@ -1,15 +1,18 @@
 [
   {
+    "conversationId": "conversationId1",
+    "subscriptionId": "XAMDR0009234568",
     "name": "test1.xml",
     "submitted": "2022-02-10T19:30:37.636Z",
     "lastUpdated": "2022-02-10T19:30:37.636Z",
     "messageRefId" : "GBXAMDR1234555",
     "status":{
       "Pending": {}
-    },
-    "_id": "conversationId1"
+    }
   },
   {
+    "conversationId": "conversationId2",
+    "subscriptionId": "XAMDR0009234568",
     "name": "test2.xml",
     "submitted": "2022-02-10T12:15:37.636Z",
     "lastUpdated": "2022-02-10T12:27:06.024Z",
@@ -20,17 +23,17 @@
           "detail": "error"
         }
       }
-    },
-    "_id": "conversationId2"
+    }
   },
   {
+    "conversationId": "conversationId3",
+    "subscriptionId": "XAMDR0009234568",
     "name": "test3.xml",
     "submitted": "2022-02-10T14:20:37.636Z",
     "messageRefId" : "GBXAMDR1234444",
     "lastUpdated": "2022-02-10T14:27:06.024Z",
     "status": {
       "Accepted": {}
-    },
-    "_id": "conversationId3"
+    }
   }
 ]

@@ -6,5 +6,5 @@
   "status": {
     "Accepted": {}
   },
-  "_id": "conversationId3"
+  "conversationId": "conversationId3"
 }
