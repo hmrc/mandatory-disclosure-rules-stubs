@@ -2,4 +2,4 @@
 
 POST        /mdr/dct70e/v1                   controllers.SubscriptionController.updateSubscription()
 
-POST        /mdr/dct06/v1                    controllers.SubmissionController.submit
+POST        /mdr/dct72a/v1                    controllers.SubmissionController.submit
