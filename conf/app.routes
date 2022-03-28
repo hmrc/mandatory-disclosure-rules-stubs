@@ -1,5 +1,5 @@
 # microservice specific routes
 
-POST        /mdr/dct70e/v1                   controllers.SubscriptionController.updateSubscription()
+POST        /dac6/dct70e/v1                   controllers.SubscriptionController.updateSubscription()
 
-POST        /mdr/dct72a/v1                    controllers.SubmissionController.submit
+POST        /dac6/dct72a/v1                   controllers.SubmissionController.submit
