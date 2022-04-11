@@ -3,13 +3,13 @@ import uk.gov.hmrc.sbtdistributables.SbtDistributablesPlugin.publishingSettings
 
 val appName = "mandatory-disclosure-rules-stubs"
 
-val silencerVersion = "1.7.3"
+val silencerVersion = "1.7.6"
 
 lazy val microservice = Project(appName, file("."))
   .enablePlugins(play.sbt.PlayScala, SbtDistributablesPlugin)
   .settings(
     majorVersion                     := 0,
-    scalaVersion                     := "2.12.13",
+    scalaVersion                     := "2.12.15",
     ThisBuild / scalafmtOnCompile := true,
     PlayKeys.playDefaultPort         := 10020,
     libraryDependencies              ++= AppDependencies.compile ++ AppDependencies.test,
