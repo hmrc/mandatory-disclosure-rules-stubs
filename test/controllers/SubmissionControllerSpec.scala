@@ -42,7 +42,7 @@ class SubmissionControllerSpec extends AnyFreeSpec with Matchers with GuiceOneAp
     "must return FORBIDDEN response when 'Authorization' header is missing in the input request" in {
       val xmlPayload = <xml><submission></submission></xml>
 
-      val request = FakeRequest(POST, routes.SubmissionController.submit().url).withXmlBody(xmlPayload)
+      val request = FakeRequest(POST, routes.SubmissionController.submit.url).withXmlBody(xmlPayload)
       val result  = route(app, request).value
 
       status(result) shouldBe FORBIDDEN
@@ -51,7 +51,7 @@ class SubmissionControllerSpec extends AnyFreeSpec with Matchers with GuiceOneAp
     "must return Ok response for xml submission" in {
       val xmlPayload = <xml><submission></submission></xml>
 
-      val request = FakeRequest(POST, routes.SubmissionController.submit().url).withXmlBody(xmlPayload).withHeaders(authHeader)
+      val request = FakeRequest(POST, routes.SubmissionController.submit.url).withXmlBody(xmlPayload).withHeaders(authHeader)
       val result  = route(app, request).value
 
       status(result) shouldBe OK
@@ -61,7 +61,7 @@ class SubmissionControllerSpec extends AnyFreeSpec with Matchers with GuiceOneAp
 
       val xmlPayload = <eis:submission> <eis:subscriptionID>XE4001234567890</eis:subscriptionID></eis:submission>
 
-      val request = FakeRequest(POST, routes.SubmissionController.submit().url).withXmlBody(xmlPayload).withHeaders(authHeader)
+      val request = FakeRequest(POST, routes.SubmissionController.submit.url).withXmlBody(xmlPayload).withHeaders(authHeader)
       val result  = route(app, request).value
 
       status(result) shouldBe BAD_REQUEST
@@ -70,7 +70,7 @@ class SubmissionControllerSpec extends AnyFreeSpec with Matchers with GuiceOneAp
 
       val xmlPayload = <eis:submission> <eis:subscriptionID>XE5001234567890</eis:subscriptionID></eis:submission>
 
-      val request = FakeRequest(POST, routes.SubmissionController.submit().url).withXmlBody(xmlPayload).withHeaders(authHeader)
+      val request = FakeRequest(POST, routes.SubmissionController.submit.url).withXmlBody(xmlPayload).withHeaders(authHeader)
       val result  = route(app, request).value
 
       status(result) shouldBe INTERNAL_SERVER_ERROR
@@ -79,7 +79,7 @@ class SubmissionControllerSpec extends AnyFreeSpec with Matchers with GuiceOneAp
 
       val xmlPayload = <eis:submission> <eis:subscriptionID>XE5031234567890</eis:subscriptionID></eis:submission>
 
-      val request = FakeRequest(POST, routes.SubmissionController.submit().url).withXmlBody(xmlPayload).withHeaders(authHeader)
+      val request = FakeRequest(POST, routes.SubmissionController.submit.url).withXmlBody(xmlPayload).withHeaders(authHeader)
       val result  = route(app, request).value
 
       status(result) shouldBe SERVICE_UNAVAILABLE
