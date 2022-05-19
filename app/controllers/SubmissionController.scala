@@ -27,7 +27,7 @@ import scala.xml.NodeSeq
 class SubmissionController @Inject() (cc: ControllerComponents, authFilter: AuthActionFilter) extends BackendController(cc) {
 
   def submit: Action[NodeSeq] = (Action(parse.xml) andThen authFilter).async { implicit request =>
-    Thread.sleep(20000)
+    Thread.sleep(32000)
     val xml            = request.body
     val subscriptionID = (xml \\ "subscriptionID").text
 
