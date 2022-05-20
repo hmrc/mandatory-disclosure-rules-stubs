@@ -18,7 +18,7 @@ package controllers
 
 import play.api.http.ContentTypes.JSON
 import play.api.mvc.Result
-import play.api.mvc.Results._
+import play.api.mvc.Results.{Ok,NotFound}
 
 import java.io.InputStream
 import scala.concurrent.{ExecutionContext, Future}
